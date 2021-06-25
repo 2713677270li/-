@@ -1,0 +1,86 @@
+/* pages/category/category.wxss *//* 管理员操作样式-- 菜谱分类 */
+.adminPerson {
+  margin-top: 10px;
+}
+/* 菜谱分类列表 */
+.cpfllb .btn {
+  /* padding: 0 20rpx; */
+  font-size: 10px;
+  line-height: 30px;
+  color: #fff;
+  border-radius: 10rpx;
+  display: inline-block;
+  /* margin-right: 15rpx; */
+  text-align: center;
+  padding: 10rpx 2rpx;
+  width: 255rpx;
+  margin-left: 15rpx;
+}
+.cpfllb .txt{
+  font-size: 24rpx;
+}
+
+.cpfllb view {
+  width: 43%;
+  height: 110rpx;
+  border: 1px solid #ccc;
+  border-radius: 25rpx;
+  float: left;
+  margin-left: 4rpx;
+  margin-top: 4rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15rpx ;
+  background-color: #f6faf5;
+  /* background-color: #c57373; */
+  margin-left: 13rpx;
+}
+.cpfllb .btnf{
+  height: 100rpx;
+  border: none;
+  /* background-color: pink; */
+  /* background-color: n; */
+}
+.weui-vcode-btn{
+  /* height: 55rpx; */
+  /* float: right;
+  margin-top: -5rpx; */
+}
+/* 分类添加按钮 */
+.cptjfl {
+  margin: 0 auto;
+  width: 96%;
+  clear: both;
+  border: 1px solid #eee;
+  padding: 0 0 15rpx 0;
+  background-color: #f2f2f2;
+  margin-bottom: 15rpx;
+}
+.cpxgfl{
+  margin: 0 auto;
+  width: 96%;
+  border-radius: 25rpx;
+  clear: both;
+  border: 1px solid #eee;
+  padding: 0 0 15rpx 0;
+  background-color: #f2f2f2;
+  margin-bottom: 15rpx;
+}
+
+.cpfllb .fladd {
+  display: flex;
+  justify-content: center;
+}
+
+.cpfllb .fladd1 {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.cpfllb .fladd image {
+  width: 25px;
+  height: 25px;
+}
