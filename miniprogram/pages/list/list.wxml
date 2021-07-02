@@ -1,22 +1,40 @@
-<view>
+<view wx:if="{{lists.length!=0}}">
+ <view>
   <block wx:for="{{ lists }}">
-    <view class="list">
-       <image src="{{ item.src }}" class="recipe-image"></image>
+    <view class="list" bindtap="_detilxq" data-id="{{item._id}}">
+       <image src="{{ item.fields[0] }}" class="recipe-image"></image>
        <!-- 基本信息 -->
        <view class="list-info">
-          <view class="list-name">{{ item.name }}</view>
+          <view class="list-name">{{ item.typeName }}</view>
           <view class="list-info-userinfo">
-            <image src="{{ item.userInfo.pic }}"></image>
+            <image src="{{ item.userInfo.avatarUrl }}"></image>
             <text>{{ item.userInfo.nickName }}</text>
           </view>
           <view class="xing">
             <!-- 星星 -->
+            <block wx:if="{{item.views < 10}}">
+            <image src="../../static/list/xing0.png"></image>
+            </block>
+            <block wx:elif="{{item.views < 20 &&item.views >= 10}}">
+            <image src="../../static/list/xing1.png"></image>
+            </block>
+            <block wx:elif="{{item.views < 30 && item.views >= 20}}">
+            <image src="../../static/list/xing2.png"></image>
+            </block>
+            <block wx:elif="{{item.views < 40 && item.views >= 30}}">
             <image src="../../static/list/xing3.png"></image>
+            </block>
+            <block wx:elif="{{item.views < 50 && item.views >= 40}}">
+            <image src="../../static/list/xing4.png"></image>
+            </block>
+            <block wx:else="{{item.views >= 50}}">
+            <image src="../../static/list/xing5.png"></image>
+            </block>
           </view>
           <view class="number">
             <view>  
               <image src="../../static/list/followed.png"></image>
-              <text>{{ item.follow }}</text>
+              <text>{{ item.follows }}</text>
             </view>
             <view>
               <image src="../../static/list/airs.png"></image>
@@ -26,4 +44,11 @@
        </view>
     </view>
   </block>
+ </view>
+ <view class="footerend" wx:if="{{isflag}}">
+   已经到底了，再拉出血了!!!
+ </view>
+</view>
+<view wx:else  class="footerend">
+  还没有这类的奇花异果哟！
 </view>

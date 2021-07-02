@@ -5,7 +5,7 @@ page{
 .header{
   height: 380rpx;
   width: 100%;
-  background-color: #ea932a;
+  background-color: #00666a;
 }
 .no-login image,.login  image{
   width: 160rpx;
@@ -51,8 +51,8 @@ page{
   text-align: center;
 }
 .menu .active{
-  border-bottom:2px solid #ea932a ;
-  color: #ea932a;
+  border-bottom:2px solid #00666a ;
+  color: #00666a;
   font-size: 18px;
 }
 
@@ -134,18 +134,20 @@ page{
   border-top-right-radius: 20rpx;  
 }
 .hot-recipe-list-item-title{
-  height: 70rpx;
+  height: 50rpx;
   width: 100%;
   font-size: 16px;
   line-height: 70rpx;
   padding-left: 18rpx;
 }
 .hot-recipe-list-item-info{
+  height: 50rpx;
   display: flex;
-  padding: 0px  18rpx;
+  padding: 10rpx  18rpx;
   justify-content: space-between;
   align-items: center;
   color: #bdbdbd;
+  /* background-color: #00666a; */
 }
 .hot-recipe-list-item-info .left{
   font-size: 14px;
@@ -159,8 +161,10 @@ page{
 }
 
 .hot-recipe-list-item-info .left image{
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
+  margin: 10rpx;
+  border: none;
 }
 
 .hot-recipe-list-item-info .right image{

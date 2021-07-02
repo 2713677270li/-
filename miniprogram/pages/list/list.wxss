@@ -66,3 +66,12 @@ page{
   display: flex;
   align-items: center;
 }
+.footerend{
+  width: 100%;
+  text-align: center;
+  line-height: 35px;
+  font-size: 20rpx;
+  color: #444;
+  height: 65rpx;
+  background-color: #f2f2f2;
+}

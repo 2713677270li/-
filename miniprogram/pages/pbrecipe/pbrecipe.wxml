@@ -5,16 +5,16 @@
 		<!-- 发布菜单 -->
 		<form bindsubmit="_addlist">
 			<!-- 需要菜单名称 -->
-			<view class="weui-cells__title">菜单名称</view>
+			<view class="weui-cells__title">花果名称</view>
 			<view class="weui-cells weui-cells_after-title">
 				<view class="weui-cell">
 					<view class="weui-cell__bd">
-						<input class="weui-input" placeholder="请输入菜单名称" name="typeName" />
+						<input class="weui-input" placeholder="请输入花果名称" name="typeName" />
 					</view>
 				</view>
 			</view>
 			<!-- 选择菜谱分类 -->
-			<view class="weui-cells__title">食品分类</view>
+			<view class="weui-cells__title">花果分类</view>
 			<view class="weui-cells weui-cells_after-title">
 				<view class="weui-cell">
 					<view class="weui-cell__bd">
@@ -22,14 +22,14 @@
 							<!-- 循环遍历菜谱分类 -->
 							<block wx:for="{{typeinput}}" wx:key="_id">	
               <!-- 给当前分类加了一个默认值，随便去了index为0的，第一个 -->
-								<radio   checked="{{index==0 ? true :false}}"  color="#ea932c" value="{{item._id}}" style="font-size:13.5px">{{item.myinput}}</radio>
+								<radio   checked="{{index==0 ? true :false}}"  color="#00666a" value="{{item._id}}" style="font-size:13.5px">{{item.myinput}}</radio>
 							</block>
 						</radio-group>
 					</view>
 				</view>
 			</view>
 			<!-- 菜谱图片 -->
-			<view class="weui-cells__title">菜谱图片</view>
+			<view class="weui-cells__title">花果图片</view>
 			<view class="weui-cells weui-cells_after-title">
 				<view class="weui-cell">
 					<view class="weui-cell__bd">
@@ -49,11 +49,11 @@
 				</view>
 			</view>
 			<!-- 菜谱做菜步骤 -->
-			<view class="weui-cells__title">菜品做法</view>
+			<view class="weui-cells__title">花果介绍</view>
 			<view class="weui-cells weui-cells_after-title">
 				<view class="weui-cell">
 					<view class="weui-cell__bd">
-						<textarea class="weui-textarea" name="recipesMake" placeholder-style="font-size:26rpx" placeholder="请输入菜品做法" style="height: 6.6em" />
+						<textarea class="weui-textarea" name="recipesMake" placeholder-style="font-size:26rpx" placeholder="请输入花果简介" style="height: 6.6em" />
 						<view class="weui-textarea-counter">不限字数</view>
           </view>
         </view>

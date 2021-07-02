@@ -5,10 +5,12 @@ let mytables={
   // 分类表
   typename:"a-typename",
   // 菜品数据
-  datalist:"a-datalist"
+  datalist:"a-datalist",
+  follow:"a-follow"
 }
-
+const db = wx.cloud.database()
 
 export default {
-  mytables
+  mytables,
+  db
 }

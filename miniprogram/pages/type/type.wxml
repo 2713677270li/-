@@ -1,15 +1,15 @@
 <view>
   <!-- 顶部图片 -->
   <view class="type-img">
-    <image src="../../static/type/banner.jpg"></image>
+    <image src="https://img0.baidu.com/it/u=81904770,3595969308&fm=26&fmt=auto&gp=0.jpg"></image>
   </view>
 
   <!-- 分类列表 -->
   <view class="type-list">
     <block wx:for="{{ types }}">
-      <view class="list-item">
-        <image src="{{ item.src }}"></image>
-        <text>{{ item.typename }}</text>
+      <view class="list-item"   bindtap="_type" data-id="{{item._id}}" data-name="{{ item.myinput }}" data-tag="ptcp" >
+        <image src="{{ item.files[0] }}"></image>
+        <text>{{ item.myinput }}</text>
       </view>
     </block>
   </view>

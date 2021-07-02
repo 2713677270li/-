@@ -5,7 +5,11 @@ page{
 }
 .weui-cells__title{
   font-size: 32rpx;
-  color: #eb9b42;
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #00666a;
+  margin-top: 0rpx;
 
 }
 .weui-input{

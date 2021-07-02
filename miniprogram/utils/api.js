@@ -25,6 +25,10 @@ const db = wx.cloud.database()
    let skip =( page-1)*limit
    return db.collection(collectionName).where(where).skip(skip).orderBy(sort.field,sort.order).limit(limit).get()
  }
+//  根据id查询
+let findid = (collectionName,id)=>{
+  return db.collection(collectionName).doc(id).get()
+}
 // 添加
  let _add = (collectionName, data = {}) => {
   return db.collection(collectionName).add({ data })
@@ -39,6 +43,10 @@ let _updatae = (collectionName, id, data)=>{
 let _del = (collectionName,id)=>{
   return db.collection(collectionName).doc(id).remove()
 }
+// 条件删除
+let whweredel = (collectionName,data)=>{
+  return db.collection(collectionName).where(data).remove()
+}
 
 
 
@@ -52,5 +60,8 @@ export default{
   // 删除
   _del,
   // 分页查询
-  findbypage
+  findbypage,
+  // id查询
+  findid,
+  whweredel
 }

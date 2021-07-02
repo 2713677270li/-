@@ -4,7 +4,7 @@ page{
 }
 .search {
   height: 130rpx;
-  background-color: #ea932a;
+  background-color: #00666a;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +14,7 @@ page{
   
   width: 644rpx;
   height: 65rpx;
-  background-color: #f2ba77;
+  background-color: #04a0a5;
   display: flex;
   justify-content: space-between;
   border-radius: 32rpx;
@@ -51,11 +51,15 @@ page{
 .hot-search-list view{
    width: 200rpx;
    height: 73rpx;
-   background-color: #fff;
+   background-color: rgb(240, 248, 248);
    margin-right: 16rpx;
    text-align: center;
    line-height: 73rpx;
    margin-bottom: 20rpx;
-   color: #d3d3d3;
+   color: #666;
    font-size: 14px;
+   border-radius: 25rpx;
+}
+.none{
+  color: #666;
 }

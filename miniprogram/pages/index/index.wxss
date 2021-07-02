@@ -1,6 +1,7 @@
+@import "./index.skeleton.wxss";
 .top-image image{
     width: 750rpx;
-    height: 350rpx;
+    height: 400rpx;
 }
 .top-type{
     width: 750rpx;
@@ -94,4 +95,16 @@
 .hot-recipe-list-item-info .right image{
     width: 27rpx;
     height: 16rpx;
+}
+.top-type .ingss{
+    width: 60rpx;
+    height: 60rpx;
+}
+.top-type .ingss1{
+    width: 50rpx;
+    height: 50rpx;
+    margin-top: 20rpx;
+}
+.ssson{
+    margin-top: 15rpx;
 }

@@ -19,81 +19,13 @@ Page({
     //   opacity: 0, //遮罩层默认不显示
     // }
     ],
-    types: [{
-      typename: "营养菜谱",
-      'src': "../../static/type/type01.jpg"
-    },
-    {
-      typename: "儿童菜谱",
-      'src': "../../static/type/type02.jpg"
-    },
-    {
-      typename: "家常菜谱",
-      'src': "../../static/type/type03.jpg"
-    },
-    {
-      typename: "主食菜谱",
-      'src': "../../static/type/type04.jpg"
-    },
-    {
-      typename: "西餐菜谱",
-      'src': "../../static/type/type05.jpg"
-    },
-    {
-      typename: "早餐菜谱",
-      'src': "../../static/type/type06.jpg"
-    },
+    types: [
+    //   {
+    //   typename: "营养菜谱",
+    //   'src': "../../static/type/type01.jpg"
+    // }
     ],
-    lists: [{
-      src: "../../static/list/list01.jpg",
-      name: "土豆小番茄披萨",
-      userInfo: {
-        nickName: "林总小图",
-        pic: "../../static/list/users.png"
-      },
-      views: 999,
-      follow: 100
-    },
-    {
-      src: "../../static/list/list02.jpg",
-      name: "草莓巧克力三明治",
-      userInfo: {
-        nickName: "林总小图",
-        pic: "../../static/list/users.png"
-      },
-      views: 88,
-      follow: 200
-    },
-    {
-      src: "../../static/list/list03.jpg",
-      name: "法师意大利面",
-      userInfo: {
-        nickName: "林总小图",
-        pic: "../../static/list/users.png"
-      },
-      views: 999,
-      follow: 100
-    },
-    {
-      src: "../../static/list/list04.jpg",
-      name: "自制拉花",
-      userInfo: {
-        nickName: "林总小图",
-        pic: "../../static/list/users.png"
-      },
-      views: 999,
-      follow: 100
-    },
-    {
-      src: "../../static/list/list05.jpg",
-      name: "营养早餐",
-      userInfo: {
-        nickName: "林总小图",
-        pic: "../../static/list/users.png"
-      },
-      views: 999,
-      follow: 100
-    }
+    lists: [
     ],
     caidanlist:[]
   },
@@ -103,13 +35,22 @@ Page({
   // },
   async caidanlist(){
     // 获取数据并分类
+    let _openid= wx.getStorageSync('openid')
     let data = await api._findByWhere(global.mytables.datalist,{
-      _openid: wx.getStorageSync('openid'),
+      _openid,
       status: 1
     },{field:"time",order:"desc"})
     // console.log(data.data);
-    let recipes =data.data
 
+
+    // console.log(types);
+    // 获取我的关注数据
+    // 首先获取已经关注的id
+    
+    // let asss = await api.findid(global.mytables.datalist,"79550af260d9cb0022a9da453dd8e690")
+    // console.log(asss);
+
+    let recipes =data.data
     let arr= [] //保存所有查询用户的请求
     // 获取本用户发布的菜品
     recipes.map(item=>{
@@ -126,7 +67,9 @@ Page({
     console.log(recipes);
     // console.log(data.data);
     this.setData({
+      
       recipes
+      
     })
   },
   //判断用户是否已经登录
@@ -136,7 +79,31 @@ Page({
       success: (res) => { //已登录
         //取出头像、用户昵称...
         let userInfo = wx.getStorageSync('userInfo')
+        if(!userInfo){
+          this.setData({  //修改数据
+            isLogin: false
+          })
+          wx.showToast({
+            title: '请登录',
+            icon:"none"
+          })
+          return
+        }
         this.caidanlist()
+        switch (this.data.caidanlist) {
+          case "0":
+            this.caidanlist()
+            break;
+          case "1":
+            this._types()
+            break;
+          case "2":
+            this._lists()
+            break;
+          default:
+            this.caidanlist()
+            break;
+          }
         this.setData({  //修改数据
           isLogin: true,
           userInfo
@@ -223,8 +190,8 @@ Page({
           let _openid = result.result.openid
           // console.log(openid);
          let req= await api._findByWhere(global.mytables.table_user,{_openid})
-        //  console.log(req);
-        if(req.data==null){
+        //  console.log(req.data);
+        if(req.data==null||req.data.length<=0){
 
           let rst = await api._add(global.mytables.table_user,{userInfo})
           if(!rst._id) return
@@ -268,8 +235,119 @@ Page({
   activeindex(e){
     // console.log(e.currentTarget.dataset.index);
     let index = e.currentTarget.dataset.index
+    switch (index) {
+      case "0":
+        this.caidanlist()
+        break;
+      case "1":
+        this._types()
+        break;
+      case "2":
+        this._lists()
+        break;
+      default:
+        this.caidanlist()
+        break;
+      }
+   
     this.setData({
       activeindex:index
     })
+  },
+  _detil(e){
+    let {id} = e.currentTarget.dataset
+    // console.log(id);
+    wx.navigateTo({
+      url: `../detail/detail?id=${id}`,
+    })
+  },
+  // 跳转到 列表页
+  _type(e){
+    let {id,name,tag} = e.currentTarget.dataset
+    wx.navigateTo({
+      url:`../list/list?id=${id}&name=${name}&tag=${tag}`,
+    })
+ },
+ _detilxq(e){
+  let {id} = e.currentTarget.dataset
+  wx.navigateTo({
+   url: `../detail/detail?id=${id}`,
+ })
+},
+async _types(){
+  let _openid= wx.getStorageSync('openid')
+    if(!_openid) return
+  let where = {
+    _openid,
+    status: 1
   }
+  let rst1 = await api._findByWhere(global.mytables.datalist, where)
+  if (rst1.data == null) return
+  let datas = rst1.data.map(item => item.recipeTypeid)
+  datas = [...new Set(datas)]
+  // console.log(datas);
+  let types = []
+  datas.forEach(item => {
+    types.push(api.findid(global.mytables.typename, item))
+  })
+  types = await Promise.all(types);
+  types = types.map(item=>{
+    return item.data
+  })
+  // types =types.data
+  // console.log(types);
+      this.setData({
+        types
+      }) 
+      // console.log(types);
+      // 根据自己的openid 获取自己发布的分类
+      // let types = await api._findByWhere(global.mytables.typename,{
+      //   _openid
+      // })
+      // types =types.data
+      // console.log(types);
+},
+async _lists(){
+  let _openid= wx.getStorageSync('openid')
+  if(!_openid) return
+  let ids = await api._findByWhere(global.mytables.follow)
+  if (ids.data == null) { //没有关注的数据
+    this.setData({ lists: [] })
+    return
+  }
+  ids=ids.data
+  //  从follow表中获取到 所有自己点过赞的作品的id
+  // console.log(ids);
+  let idd = [];
+  // 根据自己点过赞的作品的id 获取点过赞的作品
+  [...ids].forEach(item=>{
+    let d = api.findid(global.mytables.datalist,item.recipeId)
+    // console.log(d);
+    idd.push(d)
+  })
+  // 自己关注的数据
+  // 获取自己点过赞的作品后 取点过赞的作品的data数据
+  let restids = await Promise.all(idd)
+  restids = restids.map(item=>{
+    return item.data
+  })
+  // console.log(restids);
+  // 获取自己点过赞的作品的发布者
+  let idd1=[]
+  ids.map(item=>{
+    let p = api._findByWhere(global.mytables.table_user,{_openid:item._openid})
+    idd1.push(p)
+  })
+  let iddyh = await Promise.all(idd1)
+  // 将点过赞的作品的 作品数据和发布者的数据结合
+  restids.map((item,i)=>{
+    item.opacity = 0
+    // 每一项添加上响应的  自己的头像和姓名
+    item.userInfo = iddyh[i].data[0].userInfo
+  })
+  // console.log(restids);
+   this.setData({
+      lists:restids
+   })
+}
 })

@@ -1,0 +1,67 @@
+/*
+此文件为开发者工具生成，生成时间: 2021/6/29 下午5:13:36
+
+在 D:\Desktop\微信小程序笔记\笔记\6.23项目\静态模板\recipe\miniprogram\pages\index\index.wxss 中引入样式
+```
+@import "./index.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+*/
+.sk-transparent {
+    color: transparent !important;
+  }
+.sk-text-18-7500-920 {
+    background-image: linear-gradient(transparent 18.7500%, #EEEEEE 0%, #EEEEEE 81.2500%, transparent 0%) !important;
+    background-size: 100% 44.8000rpx;
+    position: relative !important;
+  }
+.sk-text {
+    background-origin: content-box !important;
+    background-clip: content-box !important;
+    background-color: transparent !important;
+    color: transparent !important;
+    background-repeat: repeat-y !important;
+  }
+.sk-text-18-7500-464 {
+    background-image: linear-gradient(transparent 18.7500%, #EEEEEE 0%, #EEEEEE 81.2500%, transparent 0%) !important;
+    background-size: 100% 44.8000rpx;
+    position: relative !important;
+  }
+.sk-text-18-7500-33 {
+    background-image: linear-gradient(transparent 18.7500%, #EEEEEE 0%, #EEEEEE 81.2500%, transparent 0%) !important;
+    background-size: 100% 44.8000rpx;
+    position: relative !important;
+  }
+.sk-text-18-7500-339 {
+    background-image: linear-gradient(transparent 18.7500%, #EEEEEE 0%, #EEEEEE 81.2500%, transparent 0%) !important;
+    background-size: 100% 44.8000rpx;
+    position: relative !important;
+  }
+.sk-text-18-7500-244 {
+    background-image: linear-gradient(transparent 18.7500%, #EEEEEE 0%, #EEEEEE 81.2500%, transparent 0%) !important;
+    background-size: 100% 57.6000rpx;
+    position: relative !important;
+  }
+.sk-text-27-1429-995 {
+    background-image: linear-gradient(transparent 27.1429%, #EEEEEE 0%, #EEEEEE 72.8571%, transparent 0%) !important;
+    background-size: 100% 70.0000rpx;
+    position: relative !important;
+  }
+.sk-text-27-1429-401 {
+    background-image: linear-gradient(transparent 27.1429%, #EEEEEE 0%, #EEEEEE 72.8571%, transparent 0%) !important;
+    background-size: 100% 70.0000rpx;
+    position: relative !important;
+  }
+.sk-image {
+    background: #EFEFEF !important;
+  }
+.sk-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: transparent;
+  }

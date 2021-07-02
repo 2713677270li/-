@@ -14,7 +14,7 @@
   padding: 33rpx 30rpx;
 }
 .info-top{
-  color: #ea932a;
+  color: #00666a;
   padding-bottom: 20rpx;
   font-size: 18px;
 }
@@ -55,7 +55,7 @@
 .makes-title{
   height: 50rpx;
   font-size: 18px;
-  color: #ea932a;
+  color: #00666a;
   margin-bottom: 10rpx;
 }
 .makes-content{
@@ -103,7 +103,7 @@
 .set-concat  button{
   width: 100%;
   height: 100%;
-  background-color: #ea932a;
+  background-color: #00666a;
   font-size: 15px;
   color: #fff;
   line-height: 75rpx;

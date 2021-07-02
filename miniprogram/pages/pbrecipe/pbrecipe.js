@@ -78,6 +78,7 @@ Page({
     }
     // 更新成功1.5秒后跳转到my页面
   },
+  
   async uploadImage() {
     // 获取所上传的所有地址
     let files = this.data.files

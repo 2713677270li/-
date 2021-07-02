@@ -11,7 +11,8 @@ App({
         //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
         //   如不填则使用默认环境（第一个创建的环境）
         // env: 'cloud1-6gjwo5q9b63aa97a',//免费1
-        env: 'demo2-9gh60jwy568d0a39',//免费2
+        env: 'demo2-9gh60jwy568d0a39',//免费
+        // env: 'demo3-2gaxmguz65805fd5',//付费
         traceUser: true,
       })
     }

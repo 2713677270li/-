@@ -1,36 +1,38 @@
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
 <view>
     <!-- 顶部图片 -->
     <view class="top-image">
-        <image src="../../imgs/index_02.jpg"></image>
+        <image src="https://img1.baidu.com/it/u=2057414169,3510992636&fm=26&fmt=auto&gp=0.jpg"></image>
     </view>
     <!-- 类别名称 -->
     <view class="top-type">
-        <view bindtap="_clist">
-            <image src="../../imgs/index_05.jpg"></image>
-            <text>菜谱分类</text>
+        <view bindtap="_clist" class="ssson">
+            <image src="../../imgs/index_05.png"   class="ingss ingss1"></image>
+            <text>全部分类</text>
         </view>
         <block wx:for="{{ types }}">
-            <view>
-                <image src="{{ item.src }}"></image>
+            <view bindtap="_type" data-id="{{item._id}}" data-name="{{ item.myinput }}" data-tag="ptcp"  >
+                <image src="{{ item.files[0] }}"></image>
                 <text>{{ item.myinput }}</text>
             </view>
         </block>
-        <view>
-            <image src="../../imgs/index_11.jpg"></image>
-            <text>关注菜谱</text>
+        <view  bindtap="_type" data-id="{{item._id}}" data-name="关注菜谱" data-tag="gzcp"  class="ssson" >
+            <image src="../../imgs/index_11.png" class="ingss"></image>
+            <text>关注较多</text>
         </view>
     </view>
 
     <!-- 热门菜谱 -->
-    <view class="hot-recipe">
-        <view class="hot-recipe-title">
-            <image src="../../imgs/index_18.jpg"></image>
-            <text>热门菜谱</text>
+    <view class="hot-recipe" >
+        <view class="hot-recipe-title" bindtap="_type" data-id="id" data-name="热门菜谱" data-tag="rmcp">
+            <image src="../../imgs/index_18.png"></image>
+            <text>热门花果</text>
         </view>
         <!-- 菜谱列表 -->
         <view class="hot-recipe-list">
             <block wx:for="{{ recipes }}">
-                <view class="hot-recipe-list-item">
+                <view class="hot-recipe-list-item" bindtap="_xqy" data-id="{{item._id}}">
                     <!-- 图片 -->
                     <image src="{{ item.fields[0] }}"></image>
                     <!-- 名字 -->
@@ -38,7 +40,7 @@
                     <!-- 发布人及浏览次数 -->
                     <view class="hot-recipe-list-item-info">
                         <view class="left">
-                            <image  src="{{item.userInfo.views}}"></image>
+                            <image  src="{{item.usetInfo.avatarUrl}}"></image>
                             <text>{{item.usetInfo.nickName}}</text>
                         </view>
                         <view class="right">

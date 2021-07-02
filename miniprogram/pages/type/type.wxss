@@ -1,7 +1,7 @@
 /* pages/type/type.wxss */
 .type-img image{
    width: 100%;
-   height: 350rpx;
+   height: 400rpx;
 }
 page{
   background-color: #f9f9f9;

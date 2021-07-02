@@ -2,21 +2,11 @@ import api from "../../utils/api"
 import gloab from "../../utils/gloab"
 Page({
     data: {
+        loading:true,
         types: [
-            // {
-            //     src: "../../imgs/index_07.jpg",
-            //     typename: "营养菜谱"
-            // },
-            // {
-            //     src: "../../imgs/index_09.jpg",
-            //     typename: "儿童菜谱"
-            // },
         ],
         recipes:[
-            // {
-            //     recipeName:"烤苏格兰蛋",
-            //     src:"../../imgs/1.jpg"
-            // }
+
         ]
     },
     // 页面初始化渲染 分类标签
@@ -35,14 +25,15 @@ Page({
         data[0].src="../../imgs/index_07.jpg"
         data[1].src="../../imgs/index_09.jpg"
         this.setData({
-            types:data
+            types:data,
+            loading:false
         })
         // console.log(data);
     },
     // 获取热门菜谱
     async hot(){
         let {data} = await api.findbypage(gloab.mytables.datalist,{status:1},4,1,{field: 'views', order: 'desc'})
-        console.log(data);
+        // console.log(data);
         let arr = []
         data.forEach(item=>{
             let p = api._findByWhere(gloab.mytables.table_user,{_openid:item._openid})
@@ -62,6 +53,19 @@ Page({
     _clist(){
         wx.navigateTo({
           url: '../type/type',
+        })
+    },
+    _type(e){
+        let {id,name,tag} = e.currentTarget.dataset
+        wx.navigateTo({
+          url:`../list/list?id=${id}&name=${name}&tag=${tag}`,
+        })
+    },
+    _xqy(e){
+        // console.log(e.currentTarget.dataset.id);
+        let {id} = e.currentTarget.dataset
+        wx.navigateTo({
+          url: `../detail/detail?id=${id}`,
         })
     }
     

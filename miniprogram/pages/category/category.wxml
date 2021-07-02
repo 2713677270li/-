@@ -5,19 +5,34 @@
 
 		<mp-cell prop="mobile" ext-class=" weui-cell_vcode">
 			<!-- 输入菜谱分类 -->
-			<input class="weui-input" placeholder="输入菜谱分类" model:value="{{myinput}}" />
+			<input class="weui-input" placeholder="输入花果名称" model:value="{{myinput}}" />
 			<view slot="footer" class="weui-vcode-btn" bindtap="_add">添加</view>
 		</mp-cell>
+			<switch  checked="{{isflag}}"  bindchange="_isflag"></switch>是否添加到首页
+			<mp-cells>
+							<mp-cell>
+								<mp-uploader 
+                    max-count="1" 
+										style="font-size:14px"
+                    title="logo选择" 
+										bindselect="_select"
+										data-titile="add"
+										files="{{files}}"
+										binddelete="_delimg"
+                    ></mp-uploader>
+							</mp-cell>
+						</mp-cells>
 	</view>
 	<!-- 修改页面  （菜谱修改分类）-->
 	<view class='cpxgfl'>
 
 		<mp-cell prop="mobile" ext-class=" weui-cell_vcode">
 			<!-- 输入菜谱分类 -->
-			<input class="weui-input" placeholder="输入菜谱分类" model:value="{{updateinput}}" />
+			<input class="weui-input" placeholder="输入花果名称" model:value="{{updateinput}}" />
 			<view slot="footer" class="weui-vcode-btn"  bindtap="_update">修改</view>
 		</mp-cell>
-
+			<switch checked="{{isflag2}}" bindchange="_isflag2"></switch>是否添加到首页
+		
 	</view>
 		<!-- 菜谱分类列表 (菜谱分类列表) -->
 		<view class='cpfllb'>
